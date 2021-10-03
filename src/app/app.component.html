@@ -1,0 +1,134 @@
+
+<div class="main">
+  <div class="header">
+    <div class="title">
+      Eth-Connect
+    </div>
+    <div>
+      <span *ngIf="account">Welcome - Your account is linked - {{account}}</span>
+      <span *ngIf="!account" class="connect-button" (click)="connectToWallet()">Connect</span>
+    </div>
+  </div>
+  <div class="content">
+    <mat-tab-group>
+      <mat-tab label="Concept">
+        <app-concept-intro></app-concept-intro>
+      </mat-tab>
+      <mat-tab label="Generate keys">
+        <app-generate-new-key></app-generate-new-key>
+      </mat-tab>
+      <mat-tab label="View Metadata">
+        <ng-template matTabContent>
+          <app-view-metadata></app-view-metadata>
+        </ng-template>
+        
+      </mat-tab>
+      <mat-tab label="Connect!">
+        <app-connect></app-connect>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>
+
+
+<div class="main">
+  <div class="title">
+    <h1>Eth-Connect</h1>
+    <h3>Giving a means to communicate</h3>
+  </div>
+  <!-- 
+  <div style="min-height: 50%;">
+    <app-concept-intro></app-concept-intro>
+  </div>
+ 
+  <app-generate-new-key></app-generate-new-key> -->
+  <!-- <div class="main-content">
+
+    <h2>Lets connect you to everybody now</h2>
+
+    <fieldset>
+      <div>Select your main account on wallet and then click the update button</div>
+      <button (click)="connectMainAccount()">Update main account address</button>
+      <div>{{mainAccountAddress}}</div>
+    </fieldset>
+
+    <br>
+    <br>
+
+    <fieldset>
+      <div>Go to metamask or your wallet and create a new Account. Save this account as "MailAccount" for your
+        reference.</div>
+      <div>Select this account account and click on the update button</div>
+      <button (click)="connectMappedAccountAddress()">Update mail/message account address</button>
+      <div>{{mappedAccountAddress}}</div>
+      <div>{{mappedAccountError}}</div>
+    </fieldset>
+
+
+
+    <br>
+    <br>
+
+    <div *ngIf="mainAccountAddress && mappedAccountAddress &&  mainAccountAddress == mappedAccountAddress">
+      <div>Your main account and your messaging account are the same</div>
+      <div>This is unsafe. Please select a different account to map as mail/messsage address </div>
+    </div>
+
+    <br>
+    <br>
+
+    <fieldset>
+      <h2>Generating signature to confirm</h2>
+      <div>Select your main address</div>
+      <div>When you click the button below, you will be prompted to sign a message indicating that you have chosen your communication address. Please confirm on your wallet/metamask</div>
+      <button (click)="confirmWithSignature()">Confirm</button>
+
+      <div *ngIf="signature">
+        <div>Success! your signature is updated</div>
+        <div>You can view this at ############</div>
+      </div>
+    </fieldset>
+
+
+
+    
+
+
+
+
+
+    <span> Enter a unique key which will serve something like a password</span>
+    <input type="text" (keyup.enter)="signSecretAndGenerateKeyPair(secretKey.value)" #secretKey>
+    <input type="button" value="Sign" (click)="signSecretAndGenerateKeyPair(secretKey.value)">
+
+    This will ask you to sign the exact same text that you have typed. This will serve to generate a random but
+    predictable key so it can use recovered when you want to read your messages.
+
+    <div class="account-info" *ngIf="account">
+      <span>Welcome - Your account is linked - {{account}}</span>
+
+      <div *ngIf="!userSecret; else userSecretSection">
+        <span> Enter your secret key</span>
+        <input type="text" (keyup.enter)="signSecretAndGenerateKeyPair(secretKey.value)" #secretKey>
+        <input type="button" value="Submit" (click)="signSecretAndGenerateKeyPair(secretKey.value)">
+      </div>
+      <ng-template #userSecretSection>
+        <div *ngIf="userSecret">
+          <span>Your secret code is {{userSecret}}</span>
+        </div>
+      </ng-template>
+    </div>
+
+  </div> -->
+  <!-- <div class="footer">
+
+  </div>
+
+
+
+
+
+
+
+
+</div> -->

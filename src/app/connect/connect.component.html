@@ -1,0 +1,32 @@
+<div>
+
+
+    <div #SendMessage>
+
+        <div #LookupDetails>
+            <input type="text" (keyup.enter)="lookupMetadataForAddress(lookupAddress.value)" #lookupAddress>
+            <button (click)="lookupMetadataForAddress(lookupAddress.value)">Lookup</button>
+
+            <div *ngIf="lookupMetadataError">
+                {{lookupMetadataError}}
+            </div>
+            <div *ngIf="lookupContactInfo">
+                <p>Connect-Info for the address exists</p>
+                <p>Address: {{lookupContactInfo.address | prettyHex}}</p>
+                <p>Public Key: {{lookupContactInfo.metadata.publicKey | prettyHex}}</p>
+            </div>
+        </div>
+        <div #MessageWindow>
+            <textarea #Message>
+
+            </textarea>
+            <br>
+            <button (click)="sendMessage(Message.value)">Send Encrypted Message</button>
+        </div>
+
+    </div>
+
+    <div #Receive Message>
+        
+    </div>
+</div>

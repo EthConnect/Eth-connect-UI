@@ -1,0 +1,34 @@
+<div>
+    <ng-container *ngIf="userContactInfo">
+        <mat-card style="margin-top: 3em;">
+            <mat-card-title>Your Contact-Info</mat-card-title>
+            <mat-card-subtitle>{{userContactInfo.address}}</mat-card-subtitle>
+            <mat-card-content>
+                <p>Address: {{userContactInfo.address| prettyHex}}</p>
+                <p>Public key:{{userContactInfo.metadata.publicKey| prettyHex}}</p>
+                <p>Signed date:{{userContactInfo.metadata.date}}</p>
+            </mat-card-content>
+        </mat-card>
+    </ng-container>
+
+    <div style="margin-top: 3em;">
+        <mat-card>
+            <mat-card-title>Lookup a different address</mat-card-title>
+            <mat-card-subtitle *ngIf="lookupContactInfo">{{lookupContactInfo.address}}</mat-card-subtitle>
+            <mat-card-content>
+                <input type="text" (keyup.enter)="lookupMetadataForAddress(lookupAddress.value)" #lookupAddress>
+                <button (click)="lookupMetadataForAddress(lookupAddress.value)" mat-stroked-button>Lookup</button>
+
+                <div *ngIf="lookupMetadataError">
+                    {{lookupMetadataError}}
+                </div>
+                <div *ngIf="lookupContactInfo">
+                    <p>Address: {{lookupContactInfo.address| prettyHex}}</p>
+                    <p>Public key:{{lookupContactInfo.metadata.publicKey| prettyHex}}</p>
+                    <p>Signed date:{{lookupContactInfo.metadata.date}}</p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+</div>

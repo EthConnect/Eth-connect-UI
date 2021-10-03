@@ -1,0 +1,5 @@
+<div>
+    <div>Import private key:</div>
+    <input type="password" (keyup.enter)="onImportKey(privateKey.value)" #privateKey>
+    <button (click)="onImportKey(privateKey.value)">Import</button>
+</div>
