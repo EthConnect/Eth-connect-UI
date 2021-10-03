@@ -7,6 +7,9 @@ import { ContactInfo } from './models/metadata.model';
 })
 export class MetadataService {
 
+  // public baseUrl = 'http://localhost:3000';
+  public baseUrl = 'https://ethconnect-api.azurewebsites.net';
+
   constructor(private http: HttpClient) { }
 
   public async fetchMetadataForAddressAsync(address: string) {
@@ -15,15 +18,15 @@ export class MetadataService {
   }
 
   public fetchMetadataForAddress(address: string) {
-    return this.http.get<ContactInfo>(`http://localhost:3000/v1/ethconnect/fetchMetadata?address=${address}`);
+    return this.http.get<ContactInfo>(`${this.baseUrl}/v1/ethconnect/fetchMetadata?address=${address}`);
   }
 
   public saveMetadata(metadata: any) {
-    return this.http.post('http://localhost:3000/v1/ethconnect/registerMetadata', metadata);
+    return this.http.post(`${this.baseUrl}/v1/ethconnect/registerMetadata`, metadata);
   }
 
   public async saveMetadataAsync(metadata: any) {
-    return this.http.post('http://localhost:3000/v1/ethconnect/registerMetadata', metadata).toPromise();
+    return this.http.post(`${this.baseUrl}/v1/ethconnect/registerMetadata`, metadata).toPromise();
   }
 
 

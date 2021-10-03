@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/simple-secure-communicate'),
+      dir: require('path').join(__dirname, './coverage/eth-connect-ui'),
       subdir: '.',
       reporters: [
         { type: 'html' },

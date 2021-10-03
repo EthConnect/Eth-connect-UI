@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "simple-secure-communicate": {
+    "eth-connect-ui": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/simple-secure-communicate",
+            "outputPath": "dist/eth-connect-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,10 +30,7 @@
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.css"
             ],
-            "scripts": [],
-            "allowedCommonJsDependencies": [
-              "js-waku", "libp2p-gossipsub", "secp256k1", "buffer","hash.js", "debug"
-           ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -72,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "simple-secure-communicate:build:production"
+              "browserTarget": "eth-connect-ui:build:production"
             },
             "development": {
-              "browserTarget": "simple-secure-communicate:build:development"
+              "browserTarget": "eth-connect-ui:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "simple-secure-communicate:build"
+            "browserTarget": "eth-connect-ui:build"
           }
         },
         "test": {
@@ -103,9 +100,13 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
   },
-  "defaultProject": "simple-secure-communicate"
+  "defaultProject": "eth-connect-ui"
 }

@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'simple-secure-communicate'`, () => {
+  it(`should have as title 'eth-connect-ui'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('simple-secure-communicate');
+    expect(app.title).toEqual('eth-connect-ui');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('simple-secure-communicate app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('eth-connect-ui app is running!');
   });
 });

@@ -7,7 +7,7 @@ import { ProviderService } from './provider.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'simple-secure-communicate';
+  title = 'eth-connect-ui';
   public account: any;
   public userSecret: string = '';
   public privateKey: string = '';
