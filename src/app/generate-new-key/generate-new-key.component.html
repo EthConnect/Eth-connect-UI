@@ -11,13 +11,14 @@
         <div class="spacer-line"></div>
 
         <div> Click on the Create button when ready.</div>
-        <button (click)="onGenerateEntropySignatureClick()">Create</button>
+        <button  style="margin-top: 1em;"  mat-raised-button (click)="onGenerateEntropySignatureClick()">Create</button>
     </mat-step>
     <mat-step label="Generate"  [editable]="false" [completed]="mode>2">
         <div>We have successfully generated a new key-pair for you using your own address as entropy.</div>
         <div> Your new public key is : {{publicKey}} </div>
-        <div> You can export these keys if you need to import them in a different wallet.
-            <button (click)="onPrivateKeyExport()">Export</button>
+        <div> You can export the private key and import it into a different chat/message app
+            <button  style="margin-left: 1em;"   mat-raised-button (click)="openPrivateKeyExportDialog()">Export</button>
+
         </div>
 
         <div class="spacer-line"></div>
@@ -29,7 +30,7 @@
         <div> We can now link the newly generated key to your connected account.</div>
         <div>This will generate a signature saying you want your messages linked to the generated public key.</div>
 
-        <button (click)="onGenerateAuthorizingSignatureWithJsonClick()">Generate</button>
+        <button style="margin-top: 1em;"  mat-raised-button (click)="onGenerateAuthorizingSignatureWithJsonClick()">Generate</button>
     </mat-step>
     <mat-step>
       <ng-template matStepLabel>Done</ng-template>

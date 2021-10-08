@@ -16,8 +16,14 @@
             <mat-card-title>Lookup a different address</mat-card-title>
             <mat-card-subtitle *ngIf="lookupContactInfo">{{lookupContactInfo.address}}</mat-card-subtitle>
             <mat-card-content>
-                <input type="text" (keyup.enter)="lookupMetadataForAddress(lookupAddress.value)" #lookupAddress>
-                <button (click)="lookupMetadataForAddress(lookupAddress.value)" mat-stroked-button>Lookup</button>
+
+                <form>
+                    <mat-form-field appearance="fill" style="margin-right: 1em; width: 25em;">
+                        <mat-label>Eth Address</mat-label>
+                      <input matInput placeholder="0x..." value="" type="text" (keyup.enter)="lookupMetadataForAddress(lookupAddress.value)"  #lookupAddress>
+                    </mat-form-field>
+                    <button (click)="lookupMetadataForAddress(lookupAddress.value)" mat-raised-button>Lookup</button>
+                </form>
 
                 <div *ngIf="lookupMetadataError">
                     {{lookupMetadataError}}

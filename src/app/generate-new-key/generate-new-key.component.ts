@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, NgZone, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatStepper } from '@angular/material/stepper';
 import * as ethers from 'ethers';
+import { ExportKeyComponent } from '../export-key/export-key.component';
 import { MetadataService } from '../metadata.service';
 import { ProviderService } from '../provider.service';
 
@@ -20,7 +22,8 @@ export class GenerateNewKeyComponent implements OnInit {
   public finalSignatureObject: any;
   public mode = 1;
 
-  constructor(private http: HttpClient, private metadataService: MetadataService, private providerService: ProviderService) { }
+  constructor(private http: HttpClient, private metadataService: MetadataService, private providerService: ProviderService,
+    public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -42,10 +45,6 @@ export class GenerateNewKeyComponent implements OnInit {
     setTimeout(() => {
       (this.stepper as MatStepper).next();
     });
-  }
-
-  public async onPrivateKeyExport() {
-
   }
 
   public async onGenerateAuthorizingSignatureWithJsonClick() {
@@ -102,6 +101,14 @@ export class GenerateNewKeyComponent implements OnInit {
       });
     });
 
+  }
+
+  public openPrivateKeyExportDialog() {
+    this.dialog.open(ExportKeyComponent, {
+      data: {
+        privateKey: this.privateKey
+      }
+    });
   }
 
 }

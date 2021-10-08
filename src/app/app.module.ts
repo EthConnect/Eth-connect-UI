@@ -16,6 +16,9 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ExportKeyComponent } from './export-key/export-key.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,7 @@ import {MatButtonModule} from '@angular/material/button';
     PrettyHexPipe,
     CopyStringDirective,
     ConnectComponent,
+    ExportKeyComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatStepperModule,
     HttpClientModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
